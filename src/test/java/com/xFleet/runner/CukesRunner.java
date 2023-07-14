@@ -1,2 +1,27 @@
-package com.xFleet.runner;public class CukesRunner {
+package com.xFleet.runner;
+
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import org.junit.runner.RunWith;
+
+@RunWith(Cucumber.class)
+@CucumberOptions(
+        plugin = {
+                "pretty",
+                "html:target/cucumber-reports.html",
+                "rerun:target/rerun.txt",
+                "me.jvt.cucumber.report.PrettyReports:target/cucumber"
+        },
+        features = "src/test/resources/features",
+        glue = "com/xFleet/step_definitions",
+        dryRun = false,
+        tags = "@webTable",
+        publish = true,
+        monochrome = false
+)
+
+
+
+
+public class CukesRunner {
 }
