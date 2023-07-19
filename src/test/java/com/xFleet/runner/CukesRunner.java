@@ -13,15 +13,12 @@ import org.junit.runner.RunWith;
                 "me.jvt.cucumber.report.PrettyReports:target/cucumber"
         },
         features = "src/test/resources/features",
-        glue = "com/xFleet/step_definitions",
+        glue = "com/xFleet/stepDefinitions",
         dryRun = false,
-        tags = "@webTable",
-        publish = true,
-        monochrome = false
+        tags = "@B29US128",
+        publish = true
+        //,monochrome = false
 )
-
-
-
 
 public class CukesRunner {
 }
