@@ -10,13 +10,12 @@ import org.junit.runner.RunWith;
                 "pretty",
                 "html:target/cucumber-reports.html",
                 "rerun:target/rerun.txt",
-                "me.jvt.cucumber.report.PrettyReports:target/cucumber",
-                "json:target/cucumber.json"
+                "me.jvt.cucumber.report.PrettyReports:target/cucumber"
         },
         features = "src/test/resources/features",
         glue = "com/xFleet/stepDefinitions",
         dryRun = false,
-        tags = "",
+        tags = "@B29G4-155",
         publish = true
         //,monochrome = false
 )
