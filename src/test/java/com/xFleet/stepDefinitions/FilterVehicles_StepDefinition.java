@@ -18,20 +18,20 @@ public class FilterVehicles_StepDefinition {
 
     @When("User can apply filters by clicking on filter name, from {string} menu.")
     public void user_can_apply_filters_by_clicking_on_filter_name_from_menu(String manageFiltersButton) {
-        BrowserUtils.sleep(5);
+        BrowserUtils.sleep(2);
         filterVehiclesPage.manageFiltersButton.click();
 
         filterVehiclesPage.checkBoxOption1.click();
-
+        BrowserUtils.sleep(2);
     }
 
     @Then("User can apply filters by typing the filter name, from {string} menu.")
     public void user_can_apply_filters_by_typing_the_filter_name_from_menu(String filterInputBox) {
         filterVehiclesPage.filterInputBox.sendKeys("Tags");
 
-        BrowserUtils.sleep(5);
+        BrowserUtils.sleep(2);
         filterVehiclesPage.tagsFilterCheckBox.click();
-        BrowserUtils.sleep(5);
+        BrowserUtils.sleep(2);
 
 
     }
