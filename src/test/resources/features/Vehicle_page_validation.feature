@@ -3,7 +3,12 @@ Feature: As a user, I should be able to select any vehicle from the Vehicle page
 
 
   Background:
-    Given user is on the logged into the webpage
+    Given user is on the login page
 
   Scenario: Vehicle page validation
-    Given
+    Given I logged in as 'salesManager'
+    When I click on 'Customers' tab
+    And I click on 'Accounts' button
+    And I click on 'Filter' button
+    And I click on 'Manage filters' tab
+    Then I should see 'Filter' options
