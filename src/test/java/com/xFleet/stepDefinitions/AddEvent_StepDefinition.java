@@ -40,7 +40,7 @@ public class AddEvent_StepDefinition {
 
     @When("user hover over on {string}")
     public void user_hover_over_on(String tab) {
-        BrowserUtils.sleep(5);
+        BrowserUtils.waitUntilLoaderScreenDisappear();
         Actions actions = new Actions(Driver.getDriver());
         actions.moveToElement(addEvent.fleetTab).perform();
 

@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/xFleet/stepDefinitions",
         dryRun = false,
-        tags = "@B29US128",
+        tags = "",
         publish = true
         //,monochrome = false
 )
