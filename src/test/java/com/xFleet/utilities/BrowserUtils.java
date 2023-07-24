@@ -13,21 +13,20 @@ import java.util.List;
 import java.util.Set;
 
 public class BrowserUtils {
-    public static void sleep(int second) {
+    public static void sleep(int second){
         second *= 1000;
-        try {
+        try{
             Thread.sleep(second);
-        } catch (InterruptedException e) {
+        }catch(InterruptedException e){
 
         }
     }
-
-    public static void switchMethodAndVerify(String expectedInUrl, String expectedTitle) {
+    public static void switchMethodAndVerify( String expectedInUrl, String expectedTitle){
         Set<String> allWindowsHandles = Driver.getDriver().getWindowHandles();
-        for (String each : allWindowsHandles) {
+        for (String each : allWindowsHandles){
             Driver.getDriver().switchTo().window(each);
             System.out.println("Current URL: " + Driver.getDriver().getCurrentUrl());
-            if (Driver.getDriver().getCurrentUrl().contains(expectedInUrl)) {
+            if(Driver.getDriver().getCurrentUrl().contains(expectedInUrl)){
                 break;
             }
         }
@@ -45,7 +44,7 @@ public class BrowserUtils {
         //• Arg3: String expectedTitle
     }
 
-    public static void verifyTitle(String expectedTitle) {
+    public static void verifyTitle( String expectedTitle){
         Assert.assertEquals(Driver.getDriver().getTitle(), expectedTitle);
         //TC #3: Create utility method
         //1. Create a new method for title verification
@@ -58,8 +57,7 @@ public class BrowserUtils {
         //• Arg1: WebDriver
         //• Arg2: String expectedTitle
     }
-
-    public static void verifyTitleContains(String expectedTitle) {
+    public static void verifyTitleContains( String expectedTitle) {
         Assert.assertTrue(Driver.getDriver().getTitle().contains(expectedTitle));
     }
     /*
@@ -67,7 +65,7 @@ public class BrowserUtils {
     and waits for that WebElement not to be displayed on the page
      */
 
-    public static void waitForInvisibilityOf(WebElement target) {
+    public static void waitForInvisibilityOf(WebElement target){
         //Create the object of 'WebDriverWait' class, and set up the constructor args
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         //use the 'wait' object with the proper syntax to create explicit wait conditions.
@@ -79,14 +77,13 @@ public class BrowserUtils {
     and waits for that Title to contain given String value
      */
 
-    public static void waitForTitleContains(String title) {
+    public static void waitForTitleContains(String title){
         //Create the object of 'WebDriverWait' class, and set up the constructor args
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(30));
         //use the 'wait' object with the proper syntax to create explicit wait conditions.
         wait.until(ExpectedConditions.titleContains(title));
 
     }
-
     /*
      *This method accepts a dropdown element and returns a List<String> that contains all options values as String.
      *@param dropdownElement
@@ -106,15 +103,14 @@ public class BrowserUtils {
         return actualMonth_as_STRING;
     }
 
-    public static void clickRadioButton(List<WebElement> radioButtons, String attributeValue) {
+    public static void clickRadioButton(List<WebElement> radioButtons, String attributeValue){
 
-        for (WebElement each : radioButtons) {
-            if (each.getAttribute("value").equalsIgnoreCase(attributeValue)) {
+        for (WebElement each : radioButtons){
+            if(each.getAttribute("value").equalsIgnoreCase(attributeValue)){
                 each.click();
             }
         }
     }
-
     public static void waitUntilLoaderScreenDisappear() {
         try {
             WebElement closeBtn = Driver.getDriver().findElement(By.cssSelector("button[title='close']"));
@@ -129,6 +125,4 @@ public class BrowserUtils {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time));
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
-
-
 }
