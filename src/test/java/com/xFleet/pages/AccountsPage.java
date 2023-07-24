@@ -23,8 +23,17 @@ public class AccountsPage extends LoginPage{
     @FindBy(xpath = "//ul[@class='ui-multiselect-checkboxes ui-helper-reset fixed-li']/li")
     public List <WebElement> multiselectCheckboxes;
 
+    @FindBy(xpath = "//div[@class='filter-item oro-drop']")
+    public List <WebElement> filterTabs;
+
+
+
+
     @FindBy(xpath = "//a[@title='Filters']/i")
     public WebElement filterButton;
+
+    @FindBy(xpath = "//select[@data-action='add-filter-select']")
+    public WebElement filterSelectButton;
 
 
 
