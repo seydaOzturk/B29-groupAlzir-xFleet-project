@@ -12,12 +12,12 @@ public class AddEvent {
     public AddEvent(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
-
     @FindBy(xpath = "//span[contains(text(),\"Fleet\")]")
-    public WebElement  fleetTab;
+    public WebElement fleetTab;
 
     @FindBy(xpath = "//span[text()=\"Vehicles\"]")
     public WebElement  vehicleModules;
+
 
     @FindBy(xpath = "//tr[@class='grid-row row-click-action']")
     public WebElement rowClick;
@@ -28,6 +28,21 @@ public class AddEvent {
 
     @FindBy(xpath = "//span[text()=\"Add Event\"]")
     public WebElement title;
+
+    @FindBy(className = "required")
+    public List<WebElement> allRequiredFields;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement saveButton;
+
+    @FindBy(xpath = "//span[text()=\"This value should not be blank.\"]")
+    public WebElement message;
+
+    @FindBy(xpath = "//fieldset[@class='form form-horizontal']")
+    public WebElement addEventPage;
+
+
+
 
 
     @FindBy(xpath = "(//div[@tabindex='-1']//span)[9]//span[contains(@class, 'color')]")

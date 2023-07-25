@@ -9,7 +9,11 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AddEvent_StepDefinition {
     @Given("user is on the login page")
@@ -56,7 +60,7 @@ public class AddEvent_StepDefinition {
 
     @When("user click on vehicle row")
     public void user_click_on_vehicle_row() {
-        BrowserUtils.sleep(5);
+        BrowserUtils.waitForClickablility(addEvent.rowClick,5);
         addEvent.rowClick.click();
 
     }
@@ -70,7 +74,49 @@ public class AddEvent_StepDefinition {
 
     @Then("user sees {string} in the title")
     public void userSeesInTheTitle(String expectedTitle) {
-        //BrowserUtils.waitForInvisibilityOf(addEvent.addEventButton);
+        BrowserUtils.sleep(5);
         Assert.assertEquals(expectedTitle, addEvent.title.getText());
+    }
+
+    @Then("user can access the {string} page")
+    public void userCanAccessThePage(String string) {
+        BrowserUtils.sleep(5);
+        Assert.assertTrue(addEvent.addEventPage.isDisplayed());
+    }
+
+    @Then("user do not see {string} button")
+    public void userDoNotSeeButton(String arg0) {
+        BrowserUtils.sleep(3);
+        Assert.assertFalse("Add event button is exist.", addEvent.addEventButton.isEnabled());
+    }
+
+    @Then("{string} page should pop up")
+    public void pageShouldPopUp(String arg0) {
+        BrowserUtils.sleep(5);
+        Assert.assertTrue(addEvent.title.isDisplayed());
+    }
+
+    @Then("user see compulsory fields below:")
+    public void userSeeCompulsoryFieldsBelow(List<String> expectedFields) {
+        BrowserUtils.sleep(3);
+        List<String> actualFields = new ArrayList<>();
+
+        for (WebElement eachField : addEvent.allRequiredFields) {
+            actualFields.add(eachField.getText());
+
+        }
+        Assert.assertEquals(expectedFields, actualFields);
+    }
+
+    @Then("user click Save button")
+    public void userClickSaveButton() {
+
+        addEvent.saveButton.click();
+    }
+
+    @Then("user sees {string} message")
+    public void userSeesMessage(String expectedMessage) {
+        BrowserUtils.sleep(3);
+        Assert.assertEquals(expectedMessage,addEvent.message.getText());
     }
 }
