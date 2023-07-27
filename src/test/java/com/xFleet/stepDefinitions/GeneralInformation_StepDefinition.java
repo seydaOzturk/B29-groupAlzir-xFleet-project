@@ -3,15 +3,12 @@ package com.xFleet.stepDefinitions;
 import com.xFleet.pages.AddEvent;
 import com.xFleet.pages.GeneralInformationPage;
 import com.xFleet.pages.LoginPage;
-import com.xFleet.utilities.BrowserUtils;
 import com.xFleet.utilities.ConfigurationReader;
 import com.xFleet.utilities.Driver;
-import io.cucumber.java.bs.A;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 
 
